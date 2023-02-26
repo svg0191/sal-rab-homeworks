@@ -46,10 +46,11 @@ function sendRequest(name, phone, address, goods, sum) {
         data.goods.push({title: goods[i].title, count: goods[i].count});
     }
 
-    data.client = `${name} ` + `${phone}`;
     data.order.address = address;
-    address = `'ул. ' + ${address.street}, 'дом ' + ${address.house}, ${address.entrance} + ' подъезд', ${address.floor} + ' этаж', 'кв ' + ${address.flat}`;
-    data.order.sum = sum;
+    data.order.sum = name + phone + address + goods + sum;
+
+    data.client = 'Иван';
+
 
         
     let jsonData = JSON.stringify(data);
